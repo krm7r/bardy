@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#087f5b" />
+  <link rel="icon" href="/assets/favicon.png" sizes="64x64" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <title>إذاعة القرآن الكريم مباشرة عبر بردي</title>
+  <meta name="description" content="استمع إلى إذاعة القرآن الكريم عبر بردي، مع إمكانية تشغيل البث وإيقافه وضبط مستوى الصوت ومشاركة الإذاعة مع أصدقائك." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://bardy.pages.dev/radio" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_EG" />
+  <meta property="og:title" content="إذاعة القرآن الكريم | بردي" />
+  <meta property="og:description" content="استمع إلى بث إذاعة القرآن الكريم من صفحة بردي، وتحكم بالتشغيل ومستوى الصوت." />
+  <meta property="og:url" content="https://bardy.pages.dev/radio" />
+  <meta property="og:site_name" content="بردي" />
+  <meta property="og:image" content="https://bardy.pages.dev/assets/bardy-radio-share-preview.jpg" />
+  <meta property="og:image:alt" content="إذاعة القرآن الكريم من بردي — راديو على ضفاف النيل" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="إذاعة القرآن الكريم | بردي" />
+  <meta name="twitter:description" content="استمع إلى بث إذاعة القرآن الكريم من صفحة بردي، وتحكم بالتشغيل ومستوى الصوت." />
+  <meta name="twitter:image" content="https://bardy.pages.dev/assets/bardy-radio-share-preview.jpg" />
+  <meta name="twitter:image:alt" content="إذاعة القرآن الكريم من بردي — راديو على ضفاف النيل" />
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%}
+    body{font-family:Tahoma,Arial,sans-serif;color:#202124;background:#0e2a22;line-height:1.8}
+    a{color:#087f5b}
+    .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#0e2a22}
+    .bg i{position:absolute;inset:0;background:center/cover no-repeat;opacity:0;transition:opacity 2.4s ease}
+    .bg i.on{opacity:1;animation:zoom 36s ease-in-out both}
+    .bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,40,30,.45),rgba(4,40,30,.1) 40%,rgba(0,0,0,.45))}
+    @keyframes zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+    .wrap{width:min(760px,100% - 28px);margin:0 auto;padding:22px 0 40px;display:grid;gap:18px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .topbar img{height:46px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+    .home-link{padding:9px 16px;border-radius:99px;background:rgba(255,253,245,.92);text-decoration:none;font-weight:700;font-size:14px}
+    .card{padding:24px;border-radius:24px;background:rgba(255,253,245,.94);box-shadow:0 14px 40px rgba(0,0,0,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+    .player{text-align:center}
+    .bismillah{margin:0 0 4px;color:#a8741f;font-size:15px;font-weight:700}
+    h1{margin:0 0 8px;font-size:clamp(24px,5vw,34px);color:#056044;line-height:1.4}
+    .lead{margin:0 auto 18px;max-width:560px;color:#4a4f4c}
+    .eq{display:flex;justify-content:center;align-items:flex-end;gap:5px;height:34px;margin:0 0 14px}
+    .eq b{width:6px;height:8px;border-radius:3px;background:#c9983a;transition:height .2s}
+    .playing .eq b{animation:eq 1s ease-in-out infinite}
+    .playing .eq b:nth-child(2){animation-delay:.15s}.playing .eq b:nth-child(3){animation-delay:.3s}.playing .eq b:nth-child(4){animation-delay:.45s}.playing .eq b:nth-child(5){animation-delay:.6s}
+    @keyframes eq{0%,100%{height:8px}50%{height:32px}}
+    #toggle{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:210px;padding:15px 28px;border:0;border-radius:99px;background:linear-gradient(180deg,#0a9a6f,#087f5b);color:#fff;font:700 18px Tahoma,Arial,sans-serif;cursor:pointer;box-shadow:0 8px 20px rgba(8,127,91,.45)}
+    #toggle:hover{filter:brightness(1.08)}
+    #status{min-height:24px;margin:12px 0 4px;font-size:14px;color:#5c6460}
+    .vol{display:flex;align-items:center;gap:10px;max-width:340px;margin:8px auto 0}
+    .vol input{flex:1}
+    h2{margin:0 0 10px;font-size:19px;color:#056044}
+    .share-row{display:flex;flex-wrap:wrap;gap:10px}
+    .share-row a,.share-row button{flex:1 1 130px;padding:11px 14px;border:0;border-radius:12px;color:#fff;text-align:center;text-decoration:none;font:700 14px Tahoma,Arial,sans-serif;cursor:pointer}
+    .s-wa{background:#1fa855}.s-fb{background:#1877f2}.s-tg{background:#2a9bd8}.s-x{background:#14171a}.s-copy{background:#a8741f}.s-native{background:#087f5b}
+    .share-row [hidden]{display:none}
+    ul{margin:0;padding-inline-start:20px}
+    li{margin:4px 0}
+    .note{font-size:13px;color:#69716d}
+    .foot{text-align:center;color:#fff;font-size:13px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+    .foot a{color:#ffe29a}
+    .bgcredit{margin:0 0 6px;font-size:12px;opacity:.9}.bgcredit:empty{display:none}
+    button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d39e2d;outline-offset:2px}
+    .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);padding:10px 18px;border-radius:99px;background:#202124;color:#fff;font-size:14px;opacity:0;pointer-events:none;transition:.25s}
+    .toast.on{opacity:1;transform:translate(-50%,0)}
+    /* small pop-out window: player only */
+    html.compact .wrap{padding:12px 0}
+    html.compact .card{padding:16px}
+    html.compact h1{font-size:19px}
+    @media(prefers-reduced-motion:reduce){.bg i.on,.playing .eq b{animation:none}.bg i{transition:none}}
+  </style>
+</head>
+<body>
+  <div class="bg" id="bg" aria-hidden="true"><i></i><i></i></div>
+  <div class="wrap">
+    <header class="topbar">
+      <a href="/" aria-label="العودة إلى بردي"><img src="/assets/bardy-logo.webp" alt="بردي" /></a>
+      <a class="home-link" href="/">العودة إلى بردي ←</a>
+    </header>
+
+    <main style="display:grid;gap:18px">
+      <section class="card player" id="player" aria-labelledby="title">
+        <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        <h1 id="title">إذاعة القرآن الكريم — بث مباشر</h1>
+        <p class="lead">استمع إلى القرآن الكريم على مدار الساعة من بردي. اضغط تشغيل، واترك الصفحة مفتوحة لتستمر الإذاعة أثناء تصفحك في نافذة أخرى.</p>
+        <div class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
+        <button id="toggle" type="button">▶ تشغيل الإذاعة</button>
+        <p id="status" role="status">اضغط تشغيل للبدء</p>
+        <div class="vol"><span aria-hidden="true">🔈</span><input id="vol" type="range" min="0" max="1" step="0.05" aria-label="مستوى الصوت" /><span aria-hidden="true">🔊</span></div>
+      </section>
+
+      <section class="card extra" aria-labelledby="share-title">
+        <h2 id="share-title">شارك الإذاعة</h2>
+        <p class="note" style="margin-top:0">صدقة جارية: شارك رابط الإذاعة مع من تحب ليستمع إليها.</p>
+        <div class="share-row" id="share">
+          <button class="s-native" id="native" type="button" hidden>مشاركة…</button>
+          <a class="s-wa" id="wa" target="_blank" rel="noopener noreferrer">واتساب</a>
+          <a class="s-fb" id="fb" target="_blank" rel="noopener noreferrer">فيسبوك</a>
+          <a class="s-tg" id="tg" target="_blank" rel="noopener noreferrer">تيليجرام</a>
+          <a class="s-x" id="x" target="_blank" rel="noopener noreferrer">X</a>
+          <button class="s-copy" id="copy" type="button">نسخ الرابط</button>
+        </div>
+      </section>
+
+      <section class="card extra" aria-labelledby="about-title">
+        <h2 id="about-title">عن إذاعة القرآن الكريم في بردي</h2>
+        <p>صفحة مخصصة للاستماع إلى بث إذاعة القرآن الكريم، بواجهة عربية بسيطة وتحكم كامل في التشغيل ومستوى الصوت.</p>
+        <ul>
+          <li>تشغيل وإيقاف بضغطة واحدة، وضبط مستوى الصوت.</li>
+          <li>زر الإذاعة العائم متاح في كل صفحات بردي، ويمكنك تحريكه إلى المكان الذي يناسبك أو إخفاؤه من القائمة الجانبية.</li>
+          <li>افتح هذه الصفحة في نافذة منفصلة لتستمر الإذاعة دون انقطاع أثناء التنقل في الموقع.</li>
+        </ul>
+        <p class="note">البث مقدَّم من مصدر خارجي، وقد ينقطع أو يتأخر أحيانًا بحسب جودة الاتصال.</p>
+      </section>
+    </main>
+    <footer class="foot extra"><p id="bgcredit" class="bgcredit"></p><a href="/about">عن بردي</a> · <a href="/contact">تواصل</a> · <a href="/privacy">الخصوصية</a> · <a href="/terms">الشروط</a> · <a href="/help">المساعدة</a></footer>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script>
+    (() => {
+      if (window.name === 'bardy-radio') document.documentElement.classList.add('compact');
+      const STREAM = 'https://stream.radiojar.com/8s5u5tpdtwzuv', KEY = 'bardy:shell:v1';
+      const $ = id => document.getElementById(id);
+      /* rotating Egyptian background (real photos + artwork from /assets/bg/backgrounds.json) */
+      let BGS = [
+        { type: 'photo', src: '/assets/bg/photos/giza-1.jpg', title: 'أهرامات الجيزة' },
+        { type: 'photo', src: '/assets/bg/photos/sphinx-1.jpg', title: 'أبو الهول' },
+        { type: 'photo', src: '/assets/bg/photos/karnak-1.jpg', title: 'معبد الكرنك' },
+        { type: 'photo', src: '/assets/bg/photos/abu-simbel-1.jpg', title: 'معبد أبو سمبل' },
+        { type: 'photo', src: '/assets/bg/photos/nile-1.jpg', title: 'النيل وفلوكة أسوان' },
+        { type: 'photo', src: '/assets/bg/photos/luxor-1.jpg', title: 'معبد الأقصر' },
+        { type: 'photo', src: '/assets/bg/photos/philae-1.jpg', title: 'معبد فيلة' },
+      ];
+      const layers = [...$('bg').children]; let bi = 0, act = 1;
+      const credit = $('bgcredit');
+      const showBg = (tries = 0) => {
+        const it = BGS[bi], img = new Image();
+        img.onload = () => {
+          const nx = layers[1 - act]; nx.style.backgroundImage = `url("${it.src}")`; nx.classList.add('on'); layers[act].classList.remove('on'); act = 1 - act;
+          if (credit) { credit.textContent = ''; if (it.credit) { credit.append('تصوير: '); if (/^https:\/\//.test(it.creditUrl || '')) { const a = document.createElement('a'); a.href = it.creditUrl; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = it.credit; credit.append(a); } else credit.append(it.credit); if (it.license) credit.append(' · ' + it.license); } }
+        };
+        img.onerror = () => { if (tries < BGS.length) { bi = (bi + 1) % BGS.length; showBg(tries + 1); } };
+        img.src = it.src;
+      };
+      (async () => {
+        try { const r = await Promise.race([fetch('/assets/bg/backgrounds.json', { cache: 'no-cache' }), new Promise((_, j) => setTimeout(j, 1800))]); const j = await r.json(); const l = (Array.isArray(j) ? j : j.backgrounds || []).filter(x => x && x.type === 'photo' && typeof x.src === 'string' && x.src.startsWith('/assets/bg/photos/')); if (l.length) BGS = l; } catch {}
+        bi = Math.floor(Math.random() * BGS.length); showBg();
+        setInterval(() => { if (!document.hidden) { bi = (bi + 1) % BGS.length; showBg(); } }, 20000);
+      })();
+      /* player */
+      const audio = new Audio(); audio.preload = 'none'; audio.src = STREAM;
+      const status = $('status'), btn = $('toggle'), vol = $('vol'), card = $('player');
+      const chan = 'BroadcastChannel' in window ? new BroadcastChannel('bardy-radio') : null;
+      let saved = {}; try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch {}
+      audio.volume = vol.value = Number(saved.volume) || 0.8;
+      const playing = () => !audio.paused && !audio.ended;
+      const setFlag = v => { try { const o = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; o.playing = v; localStorage.setItem(KEY, JSON.stringify(o)); } catch {} };
+      const announce = (open = true) => chan?.postMessage({ t: 'state', open, playing: open && playing() });
+      function sync() {
+        const on = playing();
+        card.classList.toggle('playing', on);
+        btn.textContent = on ? 'Ⅱ إيقاف الإذاعة' : '▶ تشغيل الإذاعة';
+        status.textContent = on ? 'يعمل الآن — بارك الله فيك' : 'متوقف — اضغط تشغيل للبدء';
+        announce();
+      }
+      async function play() { try { await audio.play(); } catch { status.textContent = 'تعذر التشغيل — اضغط تشغيل مرة أخرى'; } sync(); }
+      btn.addEventListener('click', () => { if (playing()) { setFlag(false); audio.pause(); } else { setFlag(true); play(); } });
+      vol.addEventListener('input', () => { audio.volume = Number(vol.value); try { const s = JSON.parse(localStorage.getItem(KEY) || '{}'); s.volume = audio.volume; localStorage.setItem(KEY, JSON.stringify(s)); } catch {} });
+      audio.addEventListener('play', sync); audio.addEventListener('pause', sync);
+      audio.addEventListener('error', () => { status.textContent = 'تعذر الوصول إلى البث حاليًا'; announce(); });
+      chan && (chan.onmessage = ({ data }) => {
+        if (!data) return;
+        if (data.t === 'ping') announce();
+        if (data.t === 'cmd') { if (data.play === true) { setFlag(true); play(); } if (data.play === false) { setFlag(false); audio.pause(); } if (typeof data.volume === 'number') { audio.volume = data.volume; vol.value = data.volume; } }
+      });
+      addEventListener('pagehide', () => announce(false));
+      if ('mediaSession' in navigator) { try { navigator.mediaSession.metadata = new MediaMetadata({ title: 'إذاعة القرآن الكريم', artist: 'بردي' }); navigator.mediaSession.setActionHandler('play', play); navigator.mediaSession.setActionHandler('pause', () => audio.pause()); } catch {} }
+      if (window.name === 'bardy-radio' || saved.playing) play(); /* continue if it was playing before opening this page */
+      /* share */
+      const url = document.querySelector('link[rel=canonical]')?.href || location.href.split('#')[0];
+      const text = 'استمع إلى إذاعة القرآن الكريم مباشرة عبر بردي';
+      const enc = encodeURIComponent;
+      $('wa').href = `https://wa.me/?text=${enc(text + '\n' + url)}`;
+      $('fb').href = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
+      $('tg').href = `https://t.me/share/url?url=${enc(url)}&text=${enc(text)}`;
+      $('x').href = `https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(url)}`;
+      const toast = m => { const t = $('toast'); t.textContent = m; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 2200); };
+      $('copy').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(url); toast('تم نسخ الرابط'); }
+        catch { const i = document.createElement('input'); i.value = url; document.body.append(i); i.select(); try { document.execCommand('copy'); toast('تم نسخ الرابط'); } catch { prompt('انسخ الرابط:', url); } i.remove(); }
+      });
+      if (navigator.share) { const n = $('native'); n.hidden = false; n.addEventListener('click', () => navigator.share({ title: document.title, text, url }).catch(() => {})); }
+    })();
+  </script>
+</body>
+</html>

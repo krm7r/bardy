@@ -1,0 +1,58 @@
+[
+  {
+    "type": "photo",
+    "src": "/assets/bg/photos/giza-1.jpg",
+    "title": "أهرامات الجيزة",
+    "credit": "Ricardo Liberato / ويكيميديا كومنز",
+    "license": "CC BY-SA 2.0",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "/assets/bg/photos/sphinx-1.jpg",
+    "title": "أبو الهول",
+    "credit": "Petar Milošević / ويكيميديا كومنز",
+    "license": "CC BY-SA 4.0",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Great_Sphinx_(%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84).jpg"
+  },
+  {
+    "type": "photo",
+    "src": "/assets/bg/photos/karnak-1.jpg",
+    "title": "معبد الكرنك",
+    "credit": "Diego Delso / ويكيميديا كومنز",
+    "license": "CC BY-SA 4.0",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Templo_de_Karnak,_Luxor,_Egipto,_2022-04-03,_DD_144.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "/assets/bg/photos/abu-simbel-1.jpg",
+    "title": "معبد أبو سمبل",
+    "credit": "Diego Delso / ويكيميديا كومنز",
+    "license": "CC BY-SA 4.0",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Templo_de_Rams%C3%A9s_II,_Abu_Simbel,_Egipto,_2022-04-02,_DD_26-28_HDR.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "/assets/bg/photos/nile-1.jpg",
+    "title": "النيل وفلوكة أسوان",
+    "credit": "Marc Ryckaert ( MJJR ) / ويكيميديا كومنز",
+    "license": "CC BY 3.0",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Aswan_Nile_R23.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "/assets/bg/photos/luxor-1.jpg",
+    "title": "معبد الأقصر",
+    "credit": "Diego Delso / ويكيميديا كومنز",
+    "license": "CC BY-SA 4.0",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:Templo_funerario_de_Hatshepsut,_Luxor,_Egipto,_2022-04-03,_DD_13.jpg"
+  },
+  {
+    "type": "photo",
+    "src": "/assets/bg/photos/philae-1.jpg",
+    "title": "معبد فيلة",
+    "credit": "Diego Delso / ويكيميديا كومنز",
+    "license": "CC BY-SA 4.0",
+    "creditUrl": "https://commons.wikimedia.org/wiki/File:File,_Asu%C3%A1n,_Egipto,_2022-04-01,_DD_144.jpg"
+  }
+]

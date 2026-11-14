@@ -1,0 +1,75 @@
+/* Bardy shell: rotating Egyptian backgrounds, sidebar, Quran radio (shared by all pages) */
+.mobile-drawer,.drawer-backdrop{display:none!important}
+html:not(.bs-nobg) body:before{display:none!important}
+html:not(.bs-nobg) body{background:#1c1a17!important}
+.bs-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:#1c1a17;pointer-events:none}
+.bs-bg-layer{position:absolute;inset:0;background:center/cover no-repeat;opacity:0;transition:opacity 2.2s ease;will-change:opacity,transform}
+.bs-bg-layer.on{opacity:1;animation:bsZoom 40s ease-in-out both}
+.bs-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,0) 28%,rgba(0,0,0,0) 62%,rgba(0,0,0,.28))}
+html.bs-nobg .bs-bg{display:none}
+@keyframes bsZoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+@media(prefers-reduced-motion:reduce){.bs-bg-layer.on{animation:none}.bs-bg-layer{transition:none}}
+/* keep header/footer readable on top of the artwork */
+html:not(.bs-nobg) .top{background:rgba(255,253,245,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+html:not(.bs-nobg) .site-header{background:rgba(255,253,245,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+html:not(.bs-nobg) footer,html:not(.bs-nobg) .site-footer{background:rgba(255,253,245,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+html:not(.bs-nobg) .results-header{background:rgba(255,253,245,.92);backdrop-filter:blur(8px)}
+
+/* edge tab + sidebar */
+.bs-tab{position:fixed;top:38%;right:0;z-index:45;display:flex;flex-direction:column;align-items:center;gap:6px;width:38px;padding:12px 0;border:0;border-radius:14px 0 0 14px;background:linear-gradient(180deg,#c9983a,#a8741f);color:#fff;font:700 12px Tahoma,Arial,sans-serif;cursor:pointer;box-shadow:-3px 4px 14px rgba(0,0,0,.28)}
+.bs-tab span{writing-mode:vertical-rl;letter-spacing:.5px}
+.bs-tab b{font-size:20px;line-height:1}
+.bs-tab:focus-visible,.bs-side button:focus-visible,.bs-side a:focus-visible,.bs-radio button:focus-visible{outline:3px solid #d39e2d;outline-offset:2px}
+@media(max-width:650px){.bs-has-burger .bs-tab{display:none}}
+.bs-backdrop{position:fixed;inset:0;z-index:58;background:rgba(20,16,10,.5);opacity:0;pointer-events:none;transition:opacity .22s}
+.bs-backdrop.open{opacity:1;pointer-events:auto}
+.bs-side{position:fixed;top:0;right:0;bottom:0;z-index:59;width:min(340px,92vw);display:flex;flex-direction:column;background:#fffdf5;color:#202124;font-family:Tahoma,Arial,sans-serif;direction:rtl;transform:translateX(105%);transition:transform .25s ease;box-shadow:-8px 0 30px rgba(0,0,0,.3)}
+.bs-side.open{transform:none}
+.bs-side-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid #eadfbf;background:linear-gradient(180deg,#fff8e1,#fffdf5)}
+.bs-side-head img{height:46px;width:auto;max-width:70%;object-fit:contain}
+.bs-close{width:38px;height:38px;border:1px solid #d7d1c2;border-radius:10px;background:#fff;font-size:22px;cursor:pointer;color:#087f5b}
+.bs-side-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:6px 14px 24px}
+.bs-date{margin:10px 0 2px;padding:10px 12px;border-radius:12px;background:#f6efd7;font-size:13px;line-height:1.7;color:#5c4a1c}
+.bs-date strong{display:block;font-size:14px;color:#3f3010}
+.bs-h{margin:18px 4px 8px;font-size:12px;font-weight:700;color:#8a6a22;letter-spacing:.3px}
+.bs-nav a{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:12px;color:#202124;text-decoration:none;font-size:15px}
+.bs-nav a i{font-style:normal;width:24px;text-align:center;font-size:17px}
+.bs-nav a:hover{background:#f6efd7}
+.bs-nav a[aria-current=page]{background:#087f5b;color:#fff;font-weight:700}
+.bs-card{padding:12px;border:1px solid #eadfbf;border-radius:14px;background:#fff;display:grid;gap:11px}
+.bs-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:14px}
+.bs-switch{position:relative;flex:none;width:44px;height:25px}
+.bs-switch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:1}
+.bs-switch span{position:absolute;inset:0;border-radius:99px;background:#cfc8b3;transition:background .2s}
+.bs-switch span:after{content:"";position:absolute;top:3px;right:3px;width:19px;height:19px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.bs-switch input:checked+span{background:#087f5b}
+.bs-switch input:checked+span:after{transform:translateX(-19px)}
+.bs-switch input:focus-visible+span{outline:3px solid #d39e2d;outline-offset:2px}
+.bs-btns{display:flex;gap:8px;flex-wrap:wrap}
+.bs-btn{flex:1;min-width:0;padding:9px 10px;border:1px solid #d7c796;border-radius:10px;background:#fff8e1;color:#4a3a12;font:600 13px Tahoma,Arial,sans-serif;cursor:pointer}
+.bs-btn:hover{background:#f6e8b8}
+.bs-btn.primary{background:#087f5b;border-color:#087f5b;color:#fff}
+.bs-card select,.bs-card input[type=range]{width:100%;font:inherit}
+.bs-card select{padding:7px;border:1px solid #d7c796;border-radius:8px;background:#fff}
+.bs-bg-title{font-size:12px;color:#6b5a2b;margin:0}
+.bs-note{margin:0;font-size:12px;color:#69716d}
+.bs-toast{position:fixed;left:50%;bottom:22px;z-index:70;transform:translate(-50%,20px);padding:10px 16px;border-radius:99px;background:#202124;color:#fff;font:13px Tahoma,Arial,sans-serif;opacity:0;pointer-events:none;transition:.25s}
+.bs-toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* Quran radio (floating) */
+.bs-radio{position:fixed;left:18px;top:84px;z-index:30;direction:rtl;font-family:Tahoma,Arial,sans-serif}
+.bs-radio[hidden]{display:none}
+.bs-radio-btn{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid #d7c796;border-radius:99px;background:rgba(255,253,245,.96);color:#056044;font:700 13px Tahoma,Arial,sans-serif;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.bs-radio.is-playing .bs-radio-btn{background:#087f5b;color:#fff;border-color:#087f5b}
+.bs-radio.is-playing .bs-radio-ico{animation:bsPulse 1.4s infinite}
+@keyframes bsPulse{50%{transform:scale(1.25)}}
+@media(max-width:600px){.bs-radio{left:10px;top:calc(66px + env(safe-area-inset-top))}}
+
+.bs-radio-btn:active{cursor:grabbing}
+.bs-link{display:block;text-align:center;font-size:13px;color:#087f5b;font-weight:700}
+.bs-radio-btn{-webkit-touch-callout:none;transition:transform .15s,box-shadow .15s}
+.bs-radio-btn.pressing{transform:scale(.94);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.bs-bg-credit{margin:0;font-size:11.5px;color:#69716d;line-height:1.6}.bs-bg-credit:empty{display:none}.bs-bg-credit a{color:#087f5b}
+
+.answer-cite{display:inline-block;margin:0 3px;padding:0 8px;border:1px solid #b9dccd;border-radius:99px;background:#e6f4ee;color:#087f5b;font-size:.78em;font-weight:700;line-height:1.8;text-decoration:none;direction:ltr;unicode-bidi:isolate;vertical-align:baseline}
+.answer-cite:hover{background:#087f5b;color:#fff}
