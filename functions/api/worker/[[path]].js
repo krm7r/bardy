@@ -1,5 +1,5 @@
 const ALLOWED_ORIGIN = "https://bardy.pages.dev";
-const ALLOWED_PATHS = new Set(["web", "answers", "images", "videos", "news", "info"]);
+const ALLOWED_PATHS = new Set(["web", "answers", "images", "videos", "news", "info", "events"]);
 const MAX_QUERY_LENGTH = 500;
 const MAX_PAGE = 100;
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -150,7 +150,7 @@ function filterPayload(value) {
   if (Array.isArray(value)) return value.filter((item) => !isBlocked(item)).map(filterPayload);
   if (!value || typeof value !== "object") return value;
   const result = { ...value };
-  for (const key of ["items", "results", "articles", "answers", "news", "data"]) {
+  for (const key of ["items", "results", "articles", "answers", "news", "data", "upcoming", "past"]) {
     if (Array.isArray(result[key])) result[key] = filterPayload(result[key]);
     else if (result[key] && typeof result[key] === "object") result[key] = filterPayload(result[key]);
   }
@@ -165,7 +165,7 @@ function filterPayload(value) {
 function validateQuery(url, path) {
   const query = (url.searchParams.get("q") || "").trim();
   if (query.length > MAX_QUERY_LENGTH) return "Query is too long";
-  if (!query && path !== "news") return "A search query is required";
+  if (!query && !["news", "events"].includes(path)) return "A search query is required";
   const page = Math.min(
     MAX_PAGE,
     Math.max(1, Number.parseInt(url.searchParams.get("page") || "1", 10) || 1),
