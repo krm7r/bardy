@@ -75,6 +75,7 @@
     html.compact h1{font-size:19px}
     @media(prefers-reduced-motion:reduce){.bg i.on,.playing .eq b{animation:none}.bg i{transition:none}}
   </style>
+  <link rel="stylesheet" href="/assets/bardy-ui.css?v=ui-3" />
 </head>
 <body>
   <div class="bg" id="bg" aria-hidden="true"><i></i><i></i></div>
@@ -129,13 +130,13 @@
       const $ = id => document.getElementById(id);
       /* rotating Egyptian background (real photos + artwork from /assets/bg/backgrounds.json) */
       let BGS = [
-        { type: 'photo', src: '/assets/bg/photos/giza-1.jpg', title: 'أهرامات الجيزة' },
-        { type: 'photo', src: '/assets/bg/photos/sphinx-1.jpg', title: 'أبو الهول' },
-        { type: 'photo', src: '/assets/bg/photos/karnak-1.jpg', title: 'معبد الكرنك' },
-        { type: 'photo', src: '/assets/bg/photos/abu-simbel-1.jpg', title: 'معبد أبو سمبل' },
-        { type: 'photo', src: '/assets/bg/photos/nile-1.jpg', title: 'النيل وفلوكة أسوان' },
-        { type: 'photo', src: '/assets/bg/photos/luxor-1.jpg', title: 'معبد الأقصر' },
-        { type: 'photo', src: '/assets/bg/photos/philae-1.jpg', title: 'معبد فيلة' },
+        { type: 'photo', src: '/assets/bg/photos/giza-1.webp', title: 'أهرامات الجيزة' },
+        { type: 'photo', src: '/assets/bg/photos/sphinx-1.webp', title: 'أبو الهول' },
+        { type: 'photo', src: '/assets/bg/photos/karnak-1.webp', title: 'معبد الكرنك' },
+        { type: 'photo', src: '/assets/bg/photos/abu-simbel-1.webp', title: 'معبد أبو سمبل' },
+        { type: 'photo', src: '/assets/bg/photos/nile-1.webp', title: 'النيل وفلوكة أسوان' },
+        { type: 'photo', src: '/assets/bg/photos/luxor-1.webp', title: 'معبد الأقصر' },
+        { type: 'photo', src: '/assets/bg/photos/philae-1.webp', title: 'معبد فيلة' },
       ];
       const layers = [...$('bg').children]; let bi = 0, act = 1;
       const credit = $('bgcredit');

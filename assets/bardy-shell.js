@@ -25,13 +25,13 @@
   };
 
   let BACKGROUNDS = [
-    { type: 'photo', src: '/assets/bg/photos/giza-1.jpg', title: 'أهرامات الجيزة' },
-    { type: 'photo', src: '/assets/bg/photos/sphinx-1.jpg', title: 'أبو الهول' },
-    { type: 'photo', src: '/assets/bg/photos/karnak-1.jpg', title: 'معبد الكرنك' },
-    { type: 'photo', src: '/assets/bg/photos/abu-simbel-1.jpg', title: 'معبد أبو سمبل' },
-    { type: 'photo', src: '/assets/bg/photos/nile-1.jpg', title: 'النيل وفلوكة أسوان' },
-    { type: 'photo', src: '/assets/bg/photos/luxor-1.jpg', title: 'معبد الأقصر' },
-    { type: 'photo', src: '/assets/bg/photos/philae-1.jpg', title: 'معبد فيلة' },
+    { type: 'photo', src: '/assets/bg/photos/giza-1.webp', title: 'أهرامات الجيزة' },
+    { type: 'photo', src: '/assets/bg/photos/sphinx-1.webp', title: 'أبو الهول' },
+    { type: 'photo', src: '/assets/bg/photos/karnak-1.webp', title: 'معبد الكرنك' },
+    { type: 'photo', src: '/assets/bg/photos/abu-simbel-1.webp', title: 'معبد أبو سمبل' },
+    { type: 'photo', src: '/assets/bg/photos/nile-1.webp', title: 'النيل وفلوكة أسوان' },
+    { type: 'photo', src: '/assets/bg/photos/luxor-1.webp', title: 'معبد الأقصر' },
+    { type: 'photo', src: '/assets/bg/photos/philae-1.webp', title: 'معبد فيلة' },
   ];
   const bad = new Set();
   async function loadBackgrounds() {
@@ -204,7 +204,7 @@
   let dragMoved = false, longFired = false;
   const clampPos = (x, y) => [Math.min(Math.max(6, x), Math.max(6, innerWidth - radio.offsetWidth - 6)), Math.min(Math.max(6, y), Math.max(6, innerHeight - radio.offsetHeight - 6))];
   function placeRadio(x, y, persist) {
-    [x, y] = clampPos(x, y); radio.style.left = x + 'px'; radio.style.top = y + 'px';
+    [x, y] = clampPos(x, y); radio.style.left = x + 'px'; radio.style.top = y + 'px'; radio.style.bottom = 'auto';
     if (persist) { try { localStorage.setItem(POS_KEY, JSON.stringify({ x, y })); } catch {} }
   }
   function loadRadioPos() { try { const p = JSON.parse(localStorage.getItem(POS_KEY) || 'null'); if (p && Number.isFinite(p.x) && Number.isFinite(p.y)) placeRadio(p.x, p.y, false); } catch {} }

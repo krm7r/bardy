@@ -270,3 +270,43 @@ button, .search-tab, .home-news-filter, .drawer-link { min-height: 44px; }
 /* Events visual polish */
 .events-stack{gap:26px}.events-current-hero{position:relative;overflow:hidden;align-items:center;padding:26px 28px;border:1px solid rgba(184,134,43,.28);background:linear-gradient(120deg,rgba(255,252,242,.98),rgba(239,247,239,.92));box-shadow:0 16px 34px rgba(67,81,55,.10)}.events-current-hero::after{content:"";position:absolute;inset:auto -35px -58px auto;width:170px;height:170px;border-radius:50%;background:rgba(184,134,43,.13)}.events-current-mark{position:relative;z-index:1;box-shadow:0 8px 18px rgba(120,84,20,.18);background:linear-gradient(145deg,#c99836,#9b6d1c)}.events-current-hero>div:last-child{position:relative;z-index:1}.events-current-kicker{letter-spacing:.04em}.events-current-hero h1{letter-spacing:-.025em}.events-current-meta span{border:1px solid rgba(184,134,43,.16);background:rgba(255,255,255,.72);box-shadow:0 2px 6px rgba(91,69,24,.05)}.events-section{gap:14px}.events-section .section-heading{padding:0 6px 2px;border-bottom:1px solid rgba(184,134,43,.16)}.events-section .section-heading h2{display:flex;align-items:center;gap:8px}.events-section .section-heading h2::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#087f5b;box-shadow:0 0 0 4px rgba(8,127,91,.12)}.events-past .section-heading h2::before{background:#9a8b70;box-shadow:0 0 0 4px rgba(154,139,112,.14)}.event-list{gap:14px}.event-card{position:relative;overflow:hidden;grid-template-columns:145px minmax(0,1fr);padding:16px;border-color:rgba(184,134,43,.18);background:rgba(255,255,255,.88);box-shadow:0 8px 20px rgba(67,81,55,.06);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}.event-card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(#087f5b,#b8862b)}.event-card:hover{transform:translateY(-2px);border-color:rgba(184,134,43,.42);box-shadow:0 13px 28px rgba(67,81,55,.12)}.event-date{min-height:74px;align-content:center;border:1px solid rgba(184,134,43,.18);background:linear-gradient(145deg,#fff4d5,#f6e1aa);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}.event-date strong{font-size:17px}.event-copy{min-width:0;padding-top:2px}.event-copy h3{font-size:18px;line-height:1.5}.event-copy p{font-size:13px;line-height:1.85}.event-meta{display:inline-flex;padding:4px 9px;border-radius:999px;background:#f3f7ef;font-size:11px}.events-past .event-card{opacity:.88}.events-past .event-card::before{background:#a79a80}.events-past .event-date{background:linear-gradient(145deg,#f1eee7,#dfd8ca)}
 @media(max-width:650px){.events-current-hero{align-items:flex-start;padding:20px 16px}.events-current-hero h1{font-size:24px}.event-card{grid-template-columns:1fr;padding:14px}.event-date{display:flex;min-height:0;align-items:center;justify-content:space-between;text-align:right}.event-date strong{font-size:16px}.event-copy h3{font-size:16px}.event-copy p{font-size:13px}.event-meta{font-size:10px}}
+
+/* ===== الأحداث v5 — هادئ وبسيط: لوحة واحدة وقائمة ===== */
+[hidden]{display:none!important}
+.events-ui{display:block;width:min(820px,100%);margin:0 auto}
+.ev-panel{padding:26px 28px 14px;border:1px solid rgba(184,134,43,.22);border-radius:24px;background:rgba(255,252,244,.97);box-shadow:0 12px 30px rgba(67,60,30,.10)}
+.ev-head h1{margin:0;color:#174f3d;font-size:clamp(22px,4vw,28px);line-height:1.4}
+.ev-sub{margin:6px 0 0;color:#7a847e;font-size:13px}
+.ev-seg{display:inline-flex;flex-wrap:wrap;gap:4px;margin:18px 0 4px;padding:4px;border-radius:999px;background:#f1ecdc}
+.ev-seg button{min-height:34px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:#5b665f;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,color .15s}
+.ev-seg button:hover{color:#087f5b}
+.ev-seg button[aria-pressed="true"]{background:#fff;color:#087f5b;box-shadow:0 1px 4px rgba(60,50,20,.14)}
+.ev-seg button:focus-visible,.event-more:focus-visible,.ev-past summary:focus-visible{outline:3px solid #d39e2d;outline-offset:2px}
+.ev-group h2{margin:22px 0 2px;padding-bottom:8px;border-bottom:1px solid #eadfc2;color:#8b6a21;font-size:12.5px;font-weight:800}
+.ev-panel .event-card{display:grid;grid-template-columns:62px 1fr;gap:16px;align-items:start;padding:14px 0;border:0;border-radius:0;background:none;box-shadow:none}
+.ev-panel .event-card+.event-card{border-top:1px solid #f0e8d2}
+.ev-panel .event-card::before,.ev-panel .event-card::after{display:none!important}
+.ev-panel .event-date{display:flex;flex-direction:column;align-items:center;padding:2px 0;border:0;background:none;text-align:center}
+.event-date strong{color:#087f5b;font-size:25px;line-height:1.1;font-weight:700}
+.event-date strong.is-text{font-size:13px;line-height:1.5;color:#5b665f}
+.event-date em{margin-top:2px;font-style:normal;color:#7a847e;font-size:12.5px;font-weight:600}
+.event-copy{min-width:0}
+.event-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.event-head h3{margin:0;color:#1f3d33;font-size:16.5px;line-height:1.55}
+.event-pill{padding:0;background:none;color:#7a847e;font-size:12.5px;font-weight:700;white-space:nowrap}
+.event-pill.is-soon{color:#8b6a21}.event-pill.is-today{color:#087f5b}
+.event-greg{margin:1px 0 0;color:#8a948e;font-size:12.5px}
+.event-desc{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin:6px 0 0;color:#5a655f;font-size:13.5px;line-height:1.85}
+.event-card.open .event-desc{display:block;-webkit-line-clamp:unset}
+.event-more{margin-top:2px;padding:0;border:0;background:none;color:#087f5b;font-size:12px;font-weight:700;cursor:pointer;min-height:0;height:auto}
+.ev-past{margin:18px 0 6px;border-top:1px solid #eadfc2}
+.ev-past summary{cursor:pointer;padding:14px 0;color:#7a847e;font-size:13px;font-weight:700}
+.ev-past .event-card{opacity:.8}
+.ev-empty{margin:24px 0 14px;color:#7a847e;text-align:center;font-size:14px}
+.ev-panel .ev-group:last-of-type{padding-bottom:6px}
+.events-skeleton{width:min(820px,100%);margin:0 auto}
+.sk{border-radius:24px;background:linear-gradient(90deg,#eee6d0 25%,#f8f3e3 50%,#eee6d0 75%);background-size:200% 100%;animation:skShimmer 1.4s ease-in-out infinite}
+.sk-panel{height:420px}
+@keyframes skShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media(max-width:560px){.ev-panel{padding:20px 16px 8px;border-radius:20px}.ev-panel .event-card{grid-template-columns:50px 1fr;gap:12px}.event-date strong{font-size:21px}.event-head h3{font-size:15.5px}.ev-seg button{padding:0 13px}}
+@media(prefers-reduced-motion:reduce){.sk{animation:none}.ev-seg button{transition:none}}

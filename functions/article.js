@@ -54,6 +54,7 @@ export async function onRequest({ request }) {
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/bardy-article.css?v=article-news-v2">
   <link rel="stylesheet" href="/assets/bardy-shell.css?v=shell-5">
+  <link rel="stylesheet" href="/assets/bardy-ui.css?v=ui-3">
   <title>${esc(title)} — بردي</title>
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${esc(canonical)}">

@@ -1,4 +1,4 @@
-const VERSION = 'bardy-shell-v38-ai-citations';
+const VERSION = 'bardy-shell-v39-events-3';
 const SHELL = [
   '/', '/index.html', '/article.html', '/results.html', '/web.html', '/ai.html',
   '/images.html', '/videos.html', '/news.html', '/local.html', '/events.html',
@@ -9,11 +9,11 @@ const SHELL = [
   '/assets/bardy-home.css', '/assets/bardy-home.js', '/assets/bardy-article.css',
   '/assets/bardy-article.js', '/assets/bardy-results.css', '/assets/bardy-search.js',
   '/assets/bardy-news.css', '/assets/bardy-news.js', '/assets/bardy-content.css', '/manifest.webmanifest',
-  '/assets/bardy-shell.css', '/assets/bardy-shell.js', '/radio.html',
+  '/assets/bardy-shell.css', '/assets/bardy-shell.js', '/assets/bardy-ui.css', '/radio.html',
   '/assets/bg/backgrounds.json',
-  '/assets/bg/photos/giza-1.jpg', '/assets/bg/photos/sphinx-1.jpg',
-  '/assets/bg/photos/karnak-1.jpg', '/assets/bg/photos/abu-simbel-1.jpg',
-  '/assets/bg/photos/nile-1.jpg', '/assets/bg/photos/luxor-1.jpg', '/assets/bg/photos/philae-1.jpg',
+  '/assets/bg/photos/giza-1.webp', '/assets/bg/photos/sphinx-1.webp',
+  '/assets/bg/photos/karnak-1.webp', '/assets/bg/photos/abu-simbel-1.webp',
+  '/assets/bg/photos/nile-1.webp', '/assets/bg/photos/luxor-1.webp', '/assets/bg/photos/philae-1.webp',
 ];
 const SHELL_PATHS = new Set(SHELL);
 const OFFLINE_DOCUMENTS = new Map([

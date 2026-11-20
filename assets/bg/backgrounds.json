@@ -1,7 +1,7 @@
 [
   {
     "type": "photo",
-    "src": "/assets/bg/photos/giza-1.jpg",
+    "src": "/assets/bg/photos/giza-1.webp",
     "title": "أهرامات الجيزة",
     "credit": "Ricardo Liberato / ويكيميديا كومنز",
     "license": "CC BY-SA 2.0",
@@ -9,7 +9,7 @@
   },
   {
     "type": "photo",
-    "src": "/assets/bg/photos/sphinx-1.jpg",
+    "src": "/assets/bg/photos/sphinx-1.webp",
     "title": "أبو الهول",
     "credit": "Petar Milošević / ويكيميديا كومنز",
     "license": "CC BY-SA 4.0",
@@ -17,7 +17,7 @@
   },
   {
     "type": "photo",
-    "src": "/assets/bg/photos/karnak-1.jpg",
+    "src": "/assets/bg/photos/karnak-1.webp",
     "title": "معبد الكرنك",
     "credit": "Diego Delso / ويكيميديا كومنز",
     "license": "CC BY-SA 4.0",
@@ -25,7 +25,7 @@
   },
   {
     "type": "photo",
-    "src": "/assets/bg/photos/abu-simbel-1.jpg",
+    "src": "/assets/bg/photos/abu-simbel-1.webp",
     "title": "معبد أبو سمبل",
     "credit": "Diego Delso / ويكيميديا كومنز",
     "license": "CC BY-SA 4.0",
@@ -33,7 +33,7 @@
   },
   {
     "type": "photo",
-    "src": "/assets/bg/photos/nile-1.jpg",
+    "src": "/assets/bg/photos/nile-1.webp",
     "title": "النيل وفلوكة أسوان",
     "credit": "Marc Ryckaert ( MJJR ) / ويكيميديا كومنز",
     "license": "CC BY 3.0",
@@ -41,7 +41,7 @@
   },
   {
     "type": "photo",
-    "src": "/assets/bg/photos/luxor-1.jpg",
+    "src": "/assets/bg/photos/luxor-1.webp",
     "title": "معبد الأقصر",
     "credit": "Diego Delso / ويكيميديا كومنز",
     "license": "CC BY-SA 4.0",
@@ -49,7 +49,7 @@
   },
   {
     "type": "photo",
-    "src": "/assets/bg/photos/philae-1.jpg",
+    "src": "/assets/bg/photos/philae-1.webp",
     "title": "معبد فيلة",
     "credit": "Diego Delso / ويكيميديا كومنز",
     "license": "CC BY-SA 4.0",

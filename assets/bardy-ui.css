@@ -1,0 +1,47 @@
+/* بردي — طبقة الهوية الموحّدة. تُحمَّل آخرًا في كل الصفحات لتوحيد الخط والألوان والهيدر والأزرار */
+:root{
+  --bd-green:#087f5b;--bd-green-dark:#056044;--bd-gold:#b8862b;--bd-ink:#202824;--bd-muted:#68736d;
+  --bd-paper:#f7f1df;--bd-line:#ded7c5;--bd-heading:#174f3d;--bd-heading-2:#225c47;--bd-ring:#d39e2d;
+  --bd-r-card:18px;--bd-r-hero:24px;--bd-shadow:0 10px 28px rgba(67,60,30,.10);
+  --bd-font:"Segoe UI","Noto Sans Arabic","Noto Naskh Arabic",Tahoma,Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+html,body,button,input,textarea,select{font-family:var(--bd-font)}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--bd-ring);outline-offset:3px;border-radius:8px}
+
+/* الهيدر: نفس الارتفاع والشعار وزر العودة في الصفحات الداخلية وصفحة الخبر */
+.site-header,.article-header{width:min(1120px,calc(100% - 32px));min-height:76px;margin:0 auto;padding:0;display:flex;align-items:center;gap:20px;border-bottom:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.brand img,.article-brand img{display:block;width:150px;height:58px;object-fit:contain}
+.header-home,.article-back{margin-inline-start:auto;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid #d5c8a8;border-radius:999px;background:#fffdf6d9;color:var(--bd-green);font-size:13px;font-weight:700;transition:background .18s ease,transform .18s ease}
+.header-home:hover,.article-back:hover{background:#fff;transform:translateY(-1px);text-decoration:none}
+
+/* العناوين: درجة الأخضر الداكن نفسها بدل الأزرق والبني المتفرقين */
+.page-hero h1,.hero h1,.article-title,.events-current-hero h1,.events-next h2{color:var(--bd-heading)}
+.content-card h2,.content-card h3,.event-copy h3{color:var(--bd-heading-2)}
+
+/* البطاقات الكبيرة والصغيرة: نفس الاستدارة والظل */
+.page-hero,.hero,.article-main,.events-current-hero,.events-next{border-radius:var(--bd-r-hero)}
+.content-card,.article-related,.events-toolbar,.event-card{border-radius:var(--bd-r-card)}
+.article-main,.article-related,.content-card{box-shadow:var(--bd-shadow)}
+
+/* الأزرار الأساسية: أخضر بردي */
+.button-link,.article-source{border-radius:12px;font-weight:700}
+.article-source{background:var(--bd-green)}.article-source:hover{background:var(--bd-green-dark);text-decoration:none}
+
+/* التذييل */
+footer a,.site-footer a{color:var(--bd-green)}
+footer a:hover,.site-footer a:hover{text-decoration:underline}
+
+@media(max-width:650px){.brand img,.article-brand img{width:128px;height:50px}.site-header,.article-header{gap:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* زر الإذاعة العائم: على الموبايل يبدأ أسفل اليسار بدل ما يغطي زر البحث (الرئيسية تبقى كما هي) */
+@media(max-width:700px){
+  body:not([data-view="home"]) .bs-radio{top:auto;bottom:calc(16px + env(safe-area-inset-bottom))}
+}
+@media(max-width:650px){.header-home,.article-back{white-space:nowrap;padding:8px 12px;font-size:12.5px}}
+@media(max-width:650px){
+  .site-header .breadcrumb{flex:1 1 0;min-width:0;overflow:hidden;white-space:nowrap}
+  .site-header .breadcrumb [aria-current]{min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .site-header .header-home{flex:0 0 auto}
+}
