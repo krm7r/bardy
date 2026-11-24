@@ -1,5 +1,5 @@
 const ALLOWED_ORIGIN = "https://bardy.pages.dev";
-const ALLOWED_PATHS = new Set(["web", "answers", "images", "videos", "news", "info", "events"]);
+const ALLOWED_PATHS = new Set(["web", "answers", "images", "videos", "news", "info", "events", "app/weather", "app/currencies", "app/calc"]);
 const MAX_QUERY_LENGTH = 500;
 const MAX_PAGE = 100;
 const RATE_LIMIT_WINDOW_MS = 60_000;
@@ -163,6 +163,27 @@ function filterPayload(value) {
 }
 
 function validateQuery(url, path) {
+  if (path.startsWith("app/")) {
+    const service = path.slice(4);
+    if (service === "weather") {
+      const city = (url.searchParams.get("city") || "").trim();
+      if (!city) return "A city is required";
+      if (city.length > 200) return "City name is too long";
+      return { service, city };
+    }
+    if (service === "currencies") {
+      const base = (url.searchParams.get("base") || "").trim();
+      const quotes = (url.searchParams.get("quotes") || "").trim();
+      if (base.length > 20 || quotes.length > 200) return "Currency parameters are too long";
+      return { service, base, quotes };
+    }
+    if (service === "calc") {
+      const expr = (url.searchParams.get("expr") || "").trim();
+      if (!expr) return "An expression is required";
+      if (expr.length > 500) return "Expression is too long";
+      return { service, expr };
+    }
+  }
   const query = (url.searchParams.get("q") || "").trim();
   if (query.length > MAX_QUERY_LENGTH) return "Query is too long";
   if (!query && !["news", "events"].includes(path)) return "A search query is required";
@@ -198,15 +219,28 @@ export async function onRequestGet({ request, env, params }) {
 
   const input = validateQuery(url, path);
   if (typeof input === "string") return json(request, { success: false, error: input }, 400);
-  if (isBlocked(input.query)) return json(request, { success: true, type: path, query: input.query, page: input.page, page_size: 0, count: 0, has_more: false, items: [] });
+  if (path.startsWith("app/")) {
+    if (isBlocked(input)) return json(request, { success: false, error: "Request blocked" }, 400);
+  } else if (isBlocked(input.query)) {
+    return json(request, { success: true, type: path, query: input.query, page: input.page, page_size: 0, count: 0, has_more: false, items: [] });
+  }
   if (!env.LEEG_URL) {
     return json(request, { success: false, error: "Search service is not configured" }, 503);
   }
 
   const upstream = new URL(env.LEEG_URL);
   upstream.pathname = `${upstream.pathname.replace(/\/$/, "")}/${path}`;
-  upstream.searchParams.set("q", input.query);
-  upstream.searchParams.set("page", String(input.page));
+  if (path.startsWith("app/")) {
+    if (input.service === "weather") upstream.searchParams.set("city", input.city);
+    if (input.service === "currencies") {
+      if (input.base) upstream.searchParams.set("base", input.base);
+      if (input.quotes) upstream.searchParams.set("quotes", input.quotes);
+    }
+    if (input.service === "calc") upstream.searchParams.set("expr", input.expr);
+  } else {
+    upstream.searchParams.set("q", input.query);
+    upstream.searchParams.set("page", String(input.page));
+  }
   if (path === "news") {
     for (const key of ["category", "source"]) {
       const value = (url.searchParams.get(key) || "").trim();
