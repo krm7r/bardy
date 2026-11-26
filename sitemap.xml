@@ -9,4 +9,7 @@
   <url><loc>https://bardy.pages.dev/privacy</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bardy.pages.dev/terms</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bardy.pages.dev/sitemap</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bardy.pages.dev/weather</loc><changefreq>hourly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bardy.pages.dev/currencies</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bardy.pages.dev/calc</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

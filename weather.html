@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#b8862b" /><link rel="manifest" href="/manifest.webmanifest" /><link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <title>الطقس في مصر — بردي</title><meta name="description" content="تابع حالة الطقس والتوقعات الساعية للمدن المصرية عبر بردي." /><link rel="canonical" href="https://bardy.pages.dev/weather" />
+  <link rel="stylesheet" href="/assets/bardy-apps.css?v=apps-1" /><link rel="stylesheet" href="/assets/bardy-shell.css?v=shell-5" /><link rel="stylesheet" href="/assets/bardy-ui.css?v=ui-3" />
+</head>
+<body data-app="weather">
+  <header class="top"><button class="mobile-menu-button" type="button" data-menu-open aria-label="فتح قائمة بردي">☰</button><a href="/" class="top-brand"><img class="logo-image" src="/assets/bardy-logo.webp" alt="بردي"></a><span>أدوات بردي</span></header>
+  <main class="app-page"><section class="app-hero"><div><p class="app-kicker">أداة الطقس</p><h1>طقس مدينتك</h1><p>اعرف الحرارة والرطوبة والرياح وتوقعات الساعات القادمة من مصدر طقس موثوق، في لوحة بسيطة وسريعة.</p></div><div class="app-hero-icon" aria-hidden="true">☀️</div></section>
+    <section class="app-panel"><div class="app-panel-head"><h2>ابحث عن مدينة</h2><span class="app-muted">مصر والعالم</span></div><form class="app-form" id="weather-form"><input class="app-input" id="weather-city" value="Cairo" placeholder="مثال: القاهرة أو Alexandria" aria-label="اسم المدينة" /><button class="app-button" type="submit">عرض الطقس</button></form><p id="weather-status" class="app-status" role="status"></p></section>
+    <section id="weather-result" aria-live="polite"><div class="empty-state">جاري تحميل الطقس…</div></section>
+  </main>
+  <footer><span>بردي — أدوات يومية بلمسة مصرية</span><span><a href="/">الرئيسية</a> · <a href="/currencies">العملات</a> · <a href="/calc">الحاسبة</a> · <a href="/about">عن بردي</a></span></footer>
+  <script src="/assets/bardy-apps.js?v=apps-1"></script><script src="/assets/bardy-shell.js?v=shell-5"></script>
+</body>
+</html>

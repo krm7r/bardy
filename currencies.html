@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#b8862b" /><link rel="manifest" href="/manifest.webmanifest" /><link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <title>أسعار العملات — بردي</title><meta name="description" content="تابع أسعار العملات الرسمية مقابل الجنيه المصري من بيانات البنك المركزي المصري عبر بردي." /><link rel="canonical" href="https://bardy.pages.dev/currencies" />
+  <link rel="stylesheet" href="/assets/bardy-apps.css?v=apps-1" /><link rel="stylesheet" href="/assets/bardy-shell.css?v=shell-5" /><link rel="stylesheet" href="/assets/bardy-ui.css?v=ui-3" />
+</head>
+<body data-app="currencies">
+  <header class="top"><button class="mobile-menu-button" type="button" data-menu-open aria-label="فتح قائمة بردي">☰</button><a href="/" class="top-brand"><img class="logo-image" src="/assets/bardy-logo.webp" alt="بردي"></a><span>أدوات بردي</span></header>
+  <main class="app-page"><section class="app-hero"><div><p class="app-kicker">أداة الأسعار</p><h1>أسعار العملات</h1><p>تابع السعر الرسمي للعملات مقابل عملة الأساس، مع تاريخ النشر ومصدر البنك المركزي المصري. اختر أكثر من عملة للمقارنة في لوحة واحدة.</p></div><div class="app-hero-icon" aria-hidden="true">💱</div></section>
+    <section class="app-panel"><div class="app-panel-head"><h2>لوحة المقارنة</h2><span class="app-muted">سعر رسمي حالي</span></div><form class="app-form" id="currency-form"><select class="app-select" id="currency-base" aria-label="العملة الأساسية"><option value="USD">الدولار USD</option><option value="EUR">اليورو EUR</option><option value="GBP">الإسترليني GBP</option><option value="SAR">الريال السعودي SAR</option></select><label class="app-button secondary" style="display:flex;align-items:center;gap:7px"><input type="checkbox" name="quote" value="EGP" checked /> EGP</label><label class="app-button secondary" style="display:flex;align-items:center;gap:7px"><input type="checkbox" name="quote" value="EUR" /> EUR</label><label class="app-button secondary" style="display:flex;align-items:center;gap:7px"><input type="checkbox" name="quote" value="GBP" /> GBP</label><label class="app-button secondary" style="display:flex;align-items:center;gap:7px"><input type="checkbox" name="quote" value="SAR" /> SAR</label><button class="app-button" type="submit">تحديث الأسعار</button></form><p id="currency-status" class="app-status" role="status"></p></section>
+    <section id="currency-result" aria-live="polite"><div class="empty-state">جاري تحميل الأسعار…</div></section>
+  </main>
+  <footer><span>بردي — أسعار واضحة من مصادرها</span><span><a href="/">الرئيسية</a> · <a href="/weather">الطقس</a> · <a href="/calc">الحاسبة</a> · <a href="/about">عن بردي</a></span></footer>
+  <script src="/assets/bardy-apps.js?v=apps-1"></script><script src="/assets/bardy-shell.js?v=shell-5"></script>
+</body>
+</html>

@@ -45,6 +45,7 @@
   const PAGES = [
     ['/', 'الرئيسية', '⌂'], ['/web.html', 'الويب', '🔎'], ['/ai.html', 'الإجابات الذكية', '✨'], ['/images.html', 'الصور', '🖼'],
     ['/videos.html', 'الفيديو', '▶'], ['/news.html', 'مدونة الأخبار', '📰'], ['/local.html', 'أنشطة محلية', '📍'], ['/events.html', 'الأحداث', '🎭'],
+    ['/weather.html', 'الطقس', '☀️'], ['/currencies.html', 'أسعار العملات', '💱'], ['/calc.html', 'الحاسبة', '🧮'],
   ];
   const INFO = [['/about', 'عن بردي'], ['/contact', 'تواصل معنا'], ['/privacy', 'سياسة الخصوصية'], ['/terms', 'شروط الاستخدام'], ['/help', 'المساعدة والأسئلة الشائعة'], ['/sitemap', 'خريطة الموقع']];
   const STREAM = 'https://stream.radiojar.com/8s5u5tpdtwzuv';
